@@ -12,15 +12,21 @@ views: 245
 likes: 14
 ---
 
+<script>
+	const something = [
+		'one', 'two', 'three'
+	]
+</script>
+
 Mit einer simplen Javascript-Funktion können in CSS angelegte Variablen ausgelesen oder verändert werden. Zur weiteren Verwendung.
 
 ```js
 function computed(el, prop, val) {
 	if (val) {
-		el.style.setProperty(prop, val)
-		return el
+		el.style.setProperty(prop, val);
+		return el;
 	}
-	return getComputedStyle(el).getPropertyValue(prop)
+	return getComputedStyle(el).getPropertyValue(prop);
 }
 ```
 
@@ -39,10 +45,10 @@ body {
 ```js
 // with our function these vars are accessible
 // get value ...
-computed(myInputEl, '--prime')
+computed(myInputEl, "--prime");
 
 // ... and set value
-computed(myInputEl, '--prime', '#f30')
+computed(myInputEl, "--prime", "#f30");
 ```
 
 Dies erweist sich z. B. bei der Erstellung von Themes als sehr nützlich. Das Aussehen oder die definierten Variablen können on-the-fly geändert und das Ergebnis an Ort und Stelle überprüft werden.
@@ -51,3 +57,12 @@ Dies erweist sich z. B. bei der Erstellung von Themes als sehr nützlich. Das Au
 
 **btw**  
 Das hier für Farben verwendete Muster kann auf alle Stile angewendet werden, die CSS zu bieten hat. Schriftarten, Box-Shadows, Farbverläufe oder Rahmenstile. Happy Theming.
+
+## Test Script
+
+Variationen erstellen, ohne den Quellcode erneut anfassen zu müssen. Geändert werden lediglich die Werte der.
+
+{#each something as item}
+
+<h4>- {item}</h4>
+{/each}
